@@ -1,8 +1,8 @@
-# NBA championship - can you tell which team will win it all before All-Star Game starts?
+# Project - NBA Champion
 - resume points xxx
 
 
-# Framing the business and analytical problem
+# Business and analytical problem: can you tell which team will win the championship before All-Star Game starts?
 - Business question
   - How confidently can we tell which team will win the championship 4 months in advance (around when All-Star Game is held)?
   - Timeline of an NBA season
@@ -31,16 +31,6 @@
   - <img src="../data/image/2022-09-11-14-19-57.png">
 
 
-
-- limitation of existing solutions
-
-
-- existing knowledge that I can reuse
-- is human expertise available
-- how would you solve the problem manually
-- list assumptions I made so far
-- verify assumptions
-
 # How should performance be measured
 - Model performance = AUPRC (Area under Precision-Recall curve)
   - sklearn implementation: [AP (Average Precision)](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score)
@@ -49,6 +39,7 @@
   - Emphasis on precision instead of recall
   - As a team manager / fan, it would be more useful to err on the side of caution and be confident that my prediction is correct, rather than to capture all the winning teams
   - At least 80% precision should be achieved
+- ## Model performance on test set
 
 # Source of data
 - NBA team statistics in regular season and playoffs from [NBA.com/stats](https://www.nba.com/stats/teams/traditional/?sort=W_PCT&dir=-1&Season=2021-22&SeasonType=Regular%20Season&SeasonSegment=Pre%20All-Star) using [nba_api from github](https://github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/leaguedashteamstats.md)
@@ -68,8 +59,7 @@
 - Some seasons have abnormally high and low number of games played before All-Star Game, e.g. 1997-98 (82 games) and 1998-99 (4 games) due to NBA lockout
 - Removed those abnormal seasons such that all the rows represent a good estimate of mid-season cutoff
 
-# Workflow
-(more details in /source folder)
+# Workflow (more details in /source folder)
 1) Train-Test split
 2) Exploratory data analysis
 3) Data preparation pipeline
@@ -78,10 +68,6 @@
 4) Shortlist potential models
 5) Hyperparameter tuning with cross-validation
 6) Performance evaluation on test set
-
-
-# Model performance on test set
-- xxx
 
 # Findings
 
@@ -115,7 +101,7 @@
 - Controlled features = features that you observe and can change
   - e.g. offensive rating and defensive rating
 - While it is easy to feed the model all the features and let it pick the useful ones with regularization,
-- > you might run into the following dilemma when uncontrolled features are the most important ones
+- ***You might run into the following dilemma when uncontrolled features are the most important ones***
 1) After regularization, the model only keeps most uncontrolled features but not controlled ones
    - e.g. instead of telling you to focus more on offense, the model only keeps the net rating
    - not useful for business decision
