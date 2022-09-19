@@ -51,7 +51,6 @@ Notebooks:
    - Average precision <img src="../data/image/2022-09-18-16-59-21.png">
    - AUROC (too optimistic) <img src="../data/image/2022-09-18-16-59-40.png">
    - Precision-Recall curve <img src="../data/image/2022-09-18-17-00-06.png">
-   - Coefficients for interpretability <img src="../data/image/2022-09-18-17-00-23.png">
 
 # Step 3: Evaluation on test set (team stats only)
 Best model = SGD(log loss) with balanced class weight
