@@ -39,7 +39,7 @@
   - Emphasis on precision instead of recall
   - As a team manager / fan, it would be more useful to err on the side of caution and be confident that my prediction is correct, rather than to capture all the winning teams
   - At least 80% precision should be achieved
-- ## Model performance on test set
+- [Model performance on test set](https://github.com/WillKWL/Project-NBASeason/tree/master/source#step-3-evaluation-on-test-set-team-stats-only)
 
 # Source of data
 - NBA team statistics in regular season and playoffs from [NBA.com/stats](https://www.nba.com/stats/teams/traditional/?sort=W_PCT&dir=-1&Season=2021-22&SeasonType=Regular%20Season&SeasonSegment=Pre%20All-Star) using [nba_api from github](https://github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/leaguedashteamstats.md)
