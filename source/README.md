@@ -52,20 +52,64 @@ Notebooks:
    - Precision-Recall curve <img src="../data/image/2022-09-18-17-00-06.png">
    - Coefficients for interpretability <img src="../data/image/2022-09-18-17-00-23.png">
 
-# Step 3: Evaluation on test set
-1. Load models and custom classes
-2. Pick best model based on train set results
-3. Evauate on test set
-
+# Step 3: Evaluation on test set (team stats only)
+Best model = SGD(log loss) with balanced class weight
 ## Predicted Probabilities
+The model was able to generalize better with a less obvious right skew in predicted probabilities due to class-imbalance
+<img src="../data/image/2022-09-18-22-54-09.png">
 
 ## Precision-Recall Curve
-
+PR curve is still bumpy because of the small test set with 100+ rows only
+<img src="../data/image/2022-09-18-22-55-46.png">
+<img src="../data/image/2022-09-18-22-56-35.png">
 ## Average Precision (Area under PR Curve)
-
+AP is worse on test set vs 10-fold CV on train set but still within 1 SD of the CV results
+<img src="../data/image/2022-09-18-22-56-20.png">
 ## Lift and gain chart
-
+Lift is good in 1st decile and by focusing on 1st decile, we can capture 60% of the champions
+<img src="../data/image/2022-09-18-22-57-30.png">
 ## Coefficients or Feature importance
+<img src="../data/image/2022-09-18-22-58-28.png">
 
-## Confusion matrix
+- Before any manipulation, the data set contains 96 features
+- After feature selection and other data cleaning procedures, there are 20 features remaining
+- Finally, after fitting logistic regression with regularization, we can see that
+  - significant variables: 
+    - FG_PCT before PTS
+      - teams should focus on getting high % shots before chasing for high scoring 
+    - AST_TO
+      - be careful with the ball and don't turn it over, which can lead to points loss in fast breaks
+    - most of the coefficients are related to OPP
+      - defense matters to win a championship
+      - controlling opponent's FG%, points, assists and blocks
 
+## Teams with greatest regret of not winning a championship
+- By sorting teams by predicted probability of winning a championship, we can see which team might had a high chance but didn't win it at last <img src="../data/image/2022-09-18-23-06-04.png">
+- Honorable mentions include 
+  - San Antonio Spurs (2015-16)
+    - 2nd in western conference but lost to warriors
+    - Tim Duncan retired after the season
+  - Golden State Warriors (2015-16)
+    - historical 73-9 record in regular season
+    - losing to Cavs after leading 3-1 in finals
+  - Miami Heat (2004-05)
+    - Traded for Shaq from Lakers and achieved franchise's best record since 1996-97 with 53 wins
+    - Lost to defending champion Detroit Pistons
+
+
+# Limitation with a small test set (100+ rows only)  
+  - Extremely bumpy precision curve
+  - Right-skewed distribution in predicted probabilities
+  - Difficult to set decision thresold
+    - Given a small test set, you can set a threshold just below the highest predicted probability to reach 100% precision
+    - But going forward, can this threshold result in a consistently high precision?
+  - Would this change if I have a larger test set to try on? or is the inherent class imbalance in the data that makes it hard to have a high precision?
+
+# Extra: evaluate on test set with team + player stats 
+Best model = Gradient Boosting Classifier + ADASYN for over-sampling + Random under-sampling 
+
+> **Adding player stats to predict whether a team could win didn't help**
+
+- While it looked better on train set, evaluation on test set told the opposite
+- Precision and recall actually looked worse <img src="../data/image/2022-09-18-23-03-14.png">
+- Average precision is much worse than CV results on train set <img src="../data/image/2022-09-18-23-03-49.png">
