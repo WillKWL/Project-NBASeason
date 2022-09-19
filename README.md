@@ -1,4 +1,4 @@
-# Project - Can you predict NBA champion 4 months in advance?
+# Binary classification - Can you predict NBA champion 4 months in advance?
 - Achieved 60% gain in 1st decile after identifing 19 out of 96 features to predict probability of winning a championship
 - Handled heavily imbalance dataset with only 3% positive by balancing class weights or creating synthetic samples
 - Designed a reusable ML pipeline to prepare dataset, finetune model on train set and evaluate performance on test set
