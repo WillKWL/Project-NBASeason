@@ -94,10 +94,16 @@
 - **Balance class weights or**
   - Several classification models, e.g. SGD, Random Forest, XGBoost, allow you to increase weighting for minority class (ie positive in our case)
   - Increase the cost to misclassify the minority class
+  - Assumption
+    - cost function: it costs me more to make a wrong guess for the minority class than for the majority class
+    - does it apply in this case? yes!
 - **Create synthetic samples**
   - SMOTE (Synthetic Minority Over-sampling Technique) or ADASYN (Adaptive Synthetic) from imblearn
   - ADASYN uses knn neighborhood and generates more samples in areas where minority class is more rare
   - Aim for positive:negative = 1:1
+  - Assumption
+    - the sample I have with heavy class imbalance is not representative of the true population, where the ratio of positive to negative class should be 1:1
+    - Is that true? No! We can only have 1 out of 30 teams which won the championship each season
   
 
 ## 2. Controlled vs uncontrolled features
