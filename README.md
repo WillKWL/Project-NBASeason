@@ -129,6 +129,7 @@
   - Add player stats and combine wth team stats
   - 600 players for 20 seasons = 12k rows
   - However, this changes our objective from predicting **which team** can win to **which player on his team** can win
+  - Data leakage in 10-fold cross-validation unless you can split by team but not player (unit of row)
 
 ## 4. Convergence of gradient descent
 - Intuitive that scaling speeds up convergence
