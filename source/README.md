@@ -1,4 +1,5 @@
 Stream A = using team stats only
+
 Stream B = using player and team stats together
 
 # Step 1: Load data 
@@ -50,7 +51,6 @@ Notebooks:
    - Average precision <img src="../data/image/2022-09-18-16-59-21.png">
    - AUROC (too optimistic) <img src="../data/image/2022-09-18-16-59-40.png">
    - Precision-Recall curve <img src="../data/image/2022-09-18-17-00-06.png">
-   - Coefficients for interpretability <img src="../data/image/2022-09-18-17-00-23.png">
 
 # Step 3: Evaluation on test set (team stats only)
 Best model = SGD(log loss) with balanced class weight
@@ -84,7 +84,8 @@ Lift is good in 1st decile and by focusing on 1st decile, we can capture 60% of 
       - controlling opponent's FG%, points, assists and blocks
 
 ## Teams with greatest regret of not winning a championship
-- By sorting teams by predicted probability of winning a championship, we can see which team might had a high chance but didn't win it at last <img src="../data/image/2022-09-18-23-06-04.png">
+- By sorting teams by predicted probability of winning a championship, we can see which team might had a high chance but didn't win it at last 
+- <img src="../data/image/2022-09-18-23-06-04.png">
 - Honorable mentions include 
   - San Antonio Spurs (2015-16)
     - 2nd in western conference but lost to warriors
