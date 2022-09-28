@@ -129,6 +129,8 @@
   - despite adjustments to tackle class-imbalance
   - sometimes precision collapsed to 0 even when threshold is increasing
   - <img src="../master/data/image/2022-09-18-16-09-05.png">
+  - Even relaxing the target variable from predicting champion to predicting top 4 in playoffs didn't help
+    - <img src="../master/data/image/2022-09-28-17-24-03.png">
 - Computational complexity of different models can become an issue if dataset gets larger over time
 
 # Interesting directions to dig deeper
