@@ -1,4 +1,5 @@
 # Updated version (click here) = [Project-NBAGames](https://github.com/WillKWL/Project-NBAGames)
+- Predict outcome of an NBA playoff game instead of NBA Champion
 
 # Binary classification - Can you predict NBA champion 4 months in advance?
 - Achieved 60% gain in 1st decile after identifying 19 out of 96 features to predict probability of winning a championship
