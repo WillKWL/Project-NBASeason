@@ -1,3 +1,5 @@
+# Updated version = [Project-NBAGames](https://github.com/WillKWL/Project-NBAGames)
+
 # Binary classification - Can you predict NBA champion 4 months in advance?
 - Achieved 60% gain in 1st decile after identifying 19 out of 96 features to predict probability of winning a championship
 - Handled heavily imbalance dataset with only 3% positive by balancing class weights or creating synthetic samples
